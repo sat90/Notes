@@ -12,13 +12,18 @@
 
 var periodmins=0;
 
-var periodmins=prompt("Skriv inn tid","4");
+//var periodmins=prompt("Skriv inn tid","4");
 
 var periodsecs=3;
 
 var started=false;
 var mins=periodmins;
 secs=periodsecs;
+
+function start(){
+  started=true;
+  play1234();
+}
 
 function update(){
 time=setTimeout('show()',1000)}
@@ -50,6 +55,10 @@ function playbell(){
   document.getElementById("bell").play();
 }
 
+function play1234(){
+  document.getElementById("1234").play();
+}
+
 function upleft(){
 console.log("left");
 var nr = document.getElementById("scoreleft").innerHTML;
@@ -70,6 +79,7 @@ function upright(){
 </script>
 
 <audio src="sounds/bell.mp3" id="bell" controls hidden>play</audio>
+<audio src="sounds/1234.mp3" id="1234" controls hidden>play</audio>
 
 <style media="screen">
 
@@ -133,7 +143,7 @@ function upright(){
   <body onload=show();>
 
     <div id="top">
-      <p id="timeleft" onclick="started=true;">
+      <p id="timeleft" onclick="start();">
 
       </p>
     </div>
