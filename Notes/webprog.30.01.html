@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<h2>Events</h2>
+    <p>
+div class="green" ondbclick="myevent"('green double clicked'); div br
+<h3>mouse events</h3>
+  onclick, ondbclick,onmousedown,onmouseup,onmouseover,onmouseout ... <br>
+  <h3>mouse event properties</h3>
+  button, clientx,clienty,screenx,screeny,shiftkey,ctrlkey,altkey,metakey (mac only)<br>
+  <h3>keyboard events</h3>
+  onkeydown, onkeypress,onkeyup <br>
+  keydown and keyup for any keys, keypress for characters, keyevent properties: keycode, charkode... <br>
+  <h3>Frame objects events</h3>
+  onload,onpageshow,onpagehide,onresize,onscroll <br>
+  <h3>form events</h3>
+  onfocus,onblur,onchange,oninput,onsubmit,onreset <br>
+    </p>
+
+    <h2>finding html elements</h2>
+    <p>
+var element = document.getelementbyid("someid"); <br>
+id, innerhtml,tagname,getattribute() <br>
+</p>
+
+<h2>changing html elements</h2>
+<p>
+  changing innerhtml <br>
+document.getelementbyid("mydiv").innerhtml = "new content"; <br>
+changing value of a specific attribute <br>
+document.getelementbyid("myimage").src="landscape.jpg"; <br>
+</p>
+
+<h2>changing css elements</h2>
+<p>
+style.x <br>
+document.getelementbyid("mydiv").style.height="200px" <br>
+add or remove border etc... <br>
+</p>
+
+<h2>assigning events to elements</h2>
+<p>
+<script>function dosomething(){...} </script> <br>
+div id="mydiv" onclick="dosomething()" div <br>
+can also assign events  using the on property <br>
+<h3>eventlisteners</h3>
+document.getelementbyid("mybtn").addeventlistener("click"),showalert); <br>
+<h3>passing parameters to event handlers: annonymus function</h3>
+mydiv.onclick = function() { changecolor(mydiv)} <br>
+exempel:
+<img src="images/exempel1" alt="">
+</p>
+
+    <h2>forms</h2>
+    <p>
+forms: name, type, disabled, form, required <br>
+input and textarea elements: value <br>
+select list: length, value, selectedindex, options[index].value, options[index],text <br>
+onchange= ... <br>
+input checkbox and radio, -> checked... <br>
+<h3>Form validation using javascript</h3>
+form name = "test" action="..." onsubmit="return checkform();"> <br>
+    </p>
+
+    <h2>DOM nodes</h2>
+    <p>
+document is a document node, all html elements r element nodes, html attributes r attributes notes, text inside html r text nodes, comments are comment nodes <br>
+nodetype property returns property of the node <br>
+traversing the dom: <br>
+find child elements: childelementcount, children, haschildnodes(), childnode - childnode.length etc, parentnode. <br>
+
+    </p>
+
+  </body>
+</html>

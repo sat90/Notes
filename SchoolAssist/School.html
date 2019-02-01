@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+<style media="screen">
+
+h1{
+  font-size:2em;
+}
+
+iframe{
+  transform: scale(0.5);
+  position: absolute;
+  top:-200px;
+  right: -200px;
+  min-height: 800px;
+  min-width: 800px;
+
+
+}
+
+fieldset{
+  float: left;
+}
+
+  body{
+    font-size: 2em;
+    color: white;
+    font-weight: bold;
+    background-image: url("https://motionarray-portfolio.imgix.net/preview-83721-73b2ffab8d22cad99c5c66f9b51b4993-high.jpg?w=750&q=60&fit=max&auto=format");
+  }
+</style>
+
+    <title>School</title>
+    <h1>Schoolstuff</h1>
+  </head>
+  <body>
+    <p>
+Current time:
+    <script>
+    	var currentTime = new Date(),
+          hours = currentTime.getHours(),
+          minutes = currentTime.getMinutes();
+
+    	if (minutes < 10) {
+    	 minutes = "0" + minutes;
+      }
+
+    	document.write(hours + ":" + minutes)
+    </script>
+<br>
+    <script>
+  var currentDate = new Date(),
+      day = currentDate.getDate(),
+      month = currentDate.getMonth() + 1,
+      year = currentDate.getFullYear();
+      dag = currentDate.getDay();
+  document.write( day + "/" + month + "/" + year)
+</script>
+</p>
+
+<iframe src="https://cloud.timeedit.net/uis/web/student_u/ri157503g0534QQ0g5QY9Y54Z660X270Q67Y570yZ07.html"></iframe>
+
+<p>
+  <table border="2" border-radius:"15px">
+<tr>
+<td> <a href="https://stavanger.instructure.com/"><img src="https://student.uis.no/getfile.php/13333803/Canvas-logo-II.jpg%20%28rw_smallArt_1201%29.jpg?v=largeArt" width="100px" height="100px" alt=""></a></td>
+ <td> <a href="https://1359912.netacad.com/courses/756588"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRdTb-tgearPo4QrWMBAcCBzQj-YU-VL3v52rwrxGEUzgvrBXgBQ" width="100px" height="100px" alt=""></a></td>
+  <td><a href="https://github.com/uis-dat310-spring19/course-info"> <img src="images/Webprogramming.JPG" width="100px" height="100px" alt=""></a></td>
+  <td><a href="images/Ramakrishnan.pdf"><img src="images/Ramakrishanf.JPG" width="100px" height="100px" alt=""></a></td>
+ </tr>
+</table >
+</p>
+
+
+
+<p> <h2>To-do:</h2>
+  <table border="1">
+    <th> Webprogramming </th>
+    <th>databaser</th>
+    <th>komtek</th>
+
+    <tr>
+
+    </tr>
+  </table>
+</p>
+
+<p>
+  <form class="" action="index.html" method="post">
+
+  </form>
+<fieldset>
+  <legend>Add assignment</legend>
+  <fieldset>
+
+Description: <br> <textarea name="descr" rows="4" cols="30" placeholder="Describe the assignment"></textarea> </label>
+  </fieldset>
+  <fieldset>
+
+<select class="" name="fag" multiple>
+  <option value="1">webprog</option>
+  <option value="2">databaser</option>
+  <option value="3">komtek</option>
+</select>
+</fieldset>
+
+<fieldset>
+<label>Deadline: <br>  <input type="date" name="" value=""> </label>
+</fieldset>
+
+<input type="submit" name="sendinn" value="Submit">
+
+
+
+</fieldset>
+</p>
+
+  </body>
+</html>

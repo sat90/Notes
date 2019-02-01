@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Komtek 24.01</title>
+    <h1>Komtek 24.01</h1>
+
+<style media="screen">
+  body{
+    background: lightyellow;
+  }
+</style>
+
+  </head>
+  <body>
+    <h2>Network Layer</h2>
+
+    <p>
+      <h3>Outline</h3>
+      <ul>
+        <li>Network layer protocols</li>
+        <li>routing</li>
+        <li>routers</li>
+        <li>configuring a cisco router</li>
+      </ul>
+    </p>
+
+    <p>
+<h3>purpose of the network layer</h3>
+<ul>
+  <li>The network layer, which resides at OSI layer 3 provides services that allow end devices to exchange data across a network</li>
+  <li>The network layer uses four processes in order to provide end to end transport
+  <ul>
+    <li>Adressing of end devices - ip addresses must be unique for identification purposes</li>
+    <li>Encapsulation - the protocol data units form the transport layer are encapsulatd by adding up header information including source and destination up addresses.</li>
+    <li>Routing - the network layer provides services t direct packets to other networks. routers select the best path for a packet to take to its destination network.</li>
+    <li>De-encapslation - the destination host decencapsulates the packet to see if it matches its own</li>
+  </ul></li>
+</ul>
+    </p>
+
+    <p>
+<h3>Network layer protocols</h3>
+ipv4, ipv6...
+    </p>
+
+    <p>
+<h3>Encapsulating IP</h3>
+Network layer PDU = IP packet <br>
+transport layer encapsulation - segment header, data <br>
+Network layer encapsulation - ip header, data <br>
+the ip header stays the same from the source to the destination host <br>
+routers implement different network layer protocols concurrently over a network and use the network layer packet header for routing <br>
+    </p>
+
+    <p>
+<h3>Characteristics of IP</h3>
+IP was designed as a protocol with low overhead - it provides only the functions required to deliver a packet from the source to a destination <br>
+An ip packet is sent to the destinatio without prior establishment of a connection <br>
+IP was not designed to track and manage the flow of packets. These functions if required are performed by other layers - primarly tcp <br>
+IP protocols: Frame, ip header, ...
+    </p>
+
+    <p>
+<h3>connectionless</h3>
+Sender doesnt know: if the reciever is present, if the letter arrived, if the reciever can read the letter <br>
+the reciever doesnt know: when it is coming <br>
+IP is a connectionless protocol: <br>
+    </p>
+
+    <p>
+    <h3>Best effort Delivery</h3>
+IP is a best effort delivery protocol: <br>
+unreliable becayse it doesnt guarantee that all packets are sent will be recieved. <br>
+  </p>
+
+  <p>
+<h3>Media independent</h3>
+IP packets can travel over different media <br>
+ex: copper ethernet, coper serial, optical fiber, wireless <br>
+maximum transmission unit(mtu), data link layer tells the network layer the mtu(maximum size of the PDU)
+  </p>
+
+  <p>
+<h3>IPV4 packet header</h3>
+fields containing binary numbers <br>
+significant fields: version(4), differentiated services or diffserv(prio), time to live(ttl) limits lifetime of a packet decreased by one of each router along the way, protocol used to identify the next lvl protcol, source ipv4 adress and destination
+  </p>
+
+  <p>
+<h3>limitations of ipv4</h3>
+ip address depletion, internet routing table expansion, lack of end to end connectivity.
+  </p>
+
+  <p>
+<h3>introducing ipv6</h3>
+increased address space: 128 bit instead of 32 <br>
+improved packet handling, fewer fields <br>
+eliminates theneed for NAT, no sharing
+  </p>
+
+  <p>
+<h3>IPV6 Packet</h3>
+ipv4 header is simpler than ipv4 header <br>
+<ul> Advantages
+<li>simpler header format for efficient packet handling</li>
+<li>hierarchial network architercture for routing efficiency</li>
+<li>Autoconfig for addresses</li>
+<li>Eliminatio of need for NAT between private and public addresses</li>
+</ul>
+<h4>Header</h4>
+verson: ipv6 <br>
+traffic class: prio lvl <br>
+etc
+  </p>
+
+<p>
+<h3>Routing</h3>
+</p>
+
+<p>
+<h3>Host Forwarding Decision</h3>
+3 types of destinations: itself, local host, remote host. <br>
+the source ipv4 address and subnet mask is compared with the destination address and subnet mask in order to determine if the host is on the local network or remote network.
+</p>
+
+<p>
+<h3>Default Gateway</h3>
+routes traffic to other networks, has local IP address in the same address rang as other hosts on the network, can take data in and forward data out. <br>
+network device that can route traffic out to other networks...
+<h4>Using the default gateway</h4>
+...
+</p>
+
+<p>
+<h3>Host routing tables</h3>
+display using route print or netstat -r
+3 sections displayed: MAC, ipv4 route table, ipv6 route table <br>
+</p>
+
+<p>
+<h3>Router Packet forwarding decision</h3>
+routing table <br>
+directly connected routers, remote routes, default route. <br>
+</p>
+
+<p>
+<h3>ipv4 routing table</h3>
+...
+</p>
+
+<p>
+<h3>Directly connected Routing Table Entries</h3>
+router interface configed and activaded 2 table entries created automatically: <br>
+C: identifies that the network is direclty connected <br>
+L: identifies that it is a local interface
+</p>
+
+<p>
+<h3>Understanding remote route entries</h3>
+D represent route source. D identifies route as Enhanced interior gateway routing protocol route. <br>
+10.1.1.0/24 identifies destination network. <br>
+90 is administrative distance <br>
+2170112 represent metric value assigned to reach the remote network <br>
+209.165.200.226 is next hop <br>
+00.00.05 route timestamp <br>
+serial000 outgoing interface
+</p>
+
+<p>
+<h3>Next hop address</h3>
+...
+</p>
+
+<h2>Routers</h2>
+
+<p>
+<h3>A router is a Computer</h3>
+router requires a cpu, operating system and memory <br>
+cisco routers: branch, wan, service provider <br>
+we focus on branch family of routers
+</p>
+
+<p>
+<h3>Router CPU and OS</h3>
+cisco routers require a cpu to execute OS instructions including system initialization, routing functions and switching functions <br>
+</p>
+
+<p>
+<h3>Router Memory</h3>
+volatile: RAM <br>
+non volatile: NVRAM, FLASH, ROM <br>
+Volatile memory requires continual power to store information <br>
+Non-volatile memory does not require continual power.<br>
+RAM: applications, processes and data needed to be executed by CPU <br>
+ROM: store crucial operational instructions and limited IOS, ROM is firmware embedded <br>
+NVRAM: permament storage for startup config <br>
+flash: permament storage for the IOS and other operating system files such as log or backup files <br>
+</p>
+
+<p>
+<h3>Inside a router</h3>
+power supply, cooling fan, sdram, nvram, cpu, heatshields, advanced integration module <br>
+</p>
+
+<p>
+<h3>Connect to a router</h3>
+enhanced high speed wan card slots <br>
+AUX, rj45 port for remote management <br>
+console port: init config and command line interface access, rj45 or usb B <br>
+gigabit ethernet: provide lan access by connecting to switches, users or other routers <br>
+compact flash slots: cf0 and cf1 provide increased storage flash space <br>
+usb port: extra storage space
+</p>
+
+<p>
+<h3>LAN and WAN interfaces</h3>
+cisco router connections can be classified in 2 categories: <br>
+in band router interfaces: lan and wan interfaces <br>
+management ports: console and aux port <br>
+connecting: console, ssh, telnet
+</p>
+
+<p>
+<h3>BOOTset files</h3>
+load IOS image and startup config into ram on boot <br>
+running config modified by admin, should be saved into startup config to work on reboot.
+</p>
+
+<p>
+<h3>router bootup process</h3>
+post and load bootstrap program <br>
+locate and load the cisco ios software <br>
+locate and load the startupconfig file
+</p>
+
+<p>
+<h3>Show version output</h3>
+shows version of cisco ios software, bootstrap, hardware config, amount of system memory
+</p>
+
+<p>
+<h3>Configure a cisco router</h3>
+<h4>Basic switch config stps</h4>
+init config: name, secure exec mode, secure remote elnet and ssh acces, secure privliged exec mode, secure all pw in config file, provide legal notificication(motd), save config. <br>
+</p>
+
+<h3>configure router interfaces</h3>
+<p>in Band interfaces must be configured <br>
+no shutdown metric <br></p>
+
+<h3>verify interface config</h3>
+<p>commands <br>
+show interface brief, show ip route, show interface, saving: copy running-config strtup-config command</p>
+
+<h3>Default Gateway for a host</h3>
+<p>for an end device or a host to communicate over the networ it must be configured with the correct ip address info including the default gateway address <br></p>
+
+<h3>default gateway for a switch</h3>
+<p>doesnt require IP address to function</p>
+
+<h3>Important to remember!</h3>
+<p>
+<ul>
+  <li>Network layer protocols:
+  <ul>
+    <li>Purpose of the network layer</li>
+    <li>Characteristics of ip</li>
+    <li>ipv4 packet header</li>
+    <li>ipv6 packet header</li>
+  </ul></li>
+  <li>routing
+  <ul>
+    <li>host packet forwarding decision</li>
+    <li>routing packet forwardin decision</li>
+    <li>routing tables</li>
+  </ul></li>
+  <li>routers
+  <ul>
+    <li>Rouer hardware components</li>
+    <li>router bootup process</li>
+  </ul></li>
+<li>configuring a cisco routers
+<ul>
+  <li>refresh abt basic config</li>
+  <li>default gateway config</li>
+</ul></li>
+</ul>
+</p>
+
+<h2>IP addressing</h2>
+
+<h3>Outline</h3>
+<p>
+<ul>
+  <li>ipv4 network addresses</li>
+  <li>ipv6 network addresses</li>
+  <li>connectivity issues</li>
+</ul>
+</p>
+
+<h3>ipv4 addresses</h3>
+<p>32 bits divided into 4 8bit octets <br>
+commonly expressed in dotted decimal notaion. 209.165...</p>
+
+<h3>Decimal positional notation</h3>
+<p>radix: 10 <br>
+position in number, 0-3 <br>
+calculate <br>
+positonal value: 1000-100-10-1 <br></p>
+
+<h3>Binary positional notation</h3>
+<p>radix:2, position:7-0, calc: 2^7 etc, positional value: 128-64-32...</p>
+
+<h3>Binary to decimal conversion</h3>
+
+<h3>Decimal to Binary Conversion</h3>
+
+<h3>Network and Host Portions</h3>
+<p>network portion: 192.168.10 <br>
+host portion: 10 <br>
+ipv4 address is hierarchical, all devices must have same network Portions</p>
+
+<h3>subnet mask</h3>
+<p>3 ipv4 addresses must be configured on a host <br>
+unique ipv4, subnet mask, default gateway</p>
+
+<h3>Logcal AND</h3>
+<p>3 basic operations used to determine the network address: 1 and 1=1, 0 and 1=0, 0 and 0=0, 1 and 0 = 0</p>
+
+<h3>prefix length</h3>
+<p>equals number of bits in the subnet mask set to 1, writen in slash notation, / followed by the number of network bits</p>
+
+<h3>Network, host, and broadcast addresses</h3>
+<p>network address is all 0s, hosts is the rest in between, broadcast adress is all 1s</p>
+
+<h3>Dynamic ipv4 address assignment to a host</h3>
+<p>Dhcp provides ipv4 address, subnet mask, default gateway and other config info, leased for a certain length of time, on powe down its returned for reuse</p>
+
+<h3>ipv4 communication</h3>
+<p>Unicast - 1 to 1 host <br>
+broadcast - 1 to all <br>
+multicast - 1 to a select grp</p>
+
+<h3>public and private ipv4 addresses</h3>
+<p>private addresses - not routable, used in internal networks, must be translated to a public ipv4 to be routable, rfc 1918 <br>
+private address blocks: 10.0.0.0 /8 or 10.0.0.0 to 10.255.255.255, 172.16..., 192.168...</p>
+
+<h3>special user ipv4 addresses</h3>
+<p>loopback addresses, linklocal addrsses, test-net addresses</p>
+
+<h3>legacy classful addresing</h3>
+<p>were based on 3 classes: A: extremely large networks, B: moderate to large size, C: small networks with up to 254 hosts</p>
+
+<h3>assignment of ip addresses</h3>
+
+<h2>ipv6 addresses</h2>
+
+<h3>Important to remember</h3>
+<p>
+<ul>
+  <li>ipv4 network addresses: representation, hierarchical, assignment, communication type, public and private</li>
+  <li>ipv6 network addresses: motivations, representation, types, static and dunamic configuration</li>
+<li>connectivity verification: icmpv4 and icmpv6</li>
+</ul>
+</p>
+
+  </body>
+</html>

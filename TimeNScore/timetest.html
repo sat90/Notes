@@ -1,0 +1,47 @@
+<html>
+<head>
+<title></title>
+<script>
+  var started=false;
+  var mins=0;
+  secs=5;
+
+function update(){
+  time=setTimeout('show()',1000)}
+
+function show() {
+  if (started) {
+
+
+secs=secs-1;
+
+if(mins===0 && secs<0){
+  mins=4;
+  secs=0;
+  started=false;
+}
+
+if (secs<0) {
+  secs=59;
+  mins=mins-1;
+  }
+}
+
+
+
+
+
+
+document.getElementById('timeleft').innerHTML = mins+":"+secs;
+
+update();
+ }
+</script>
+</head>
+
+<body onload=show();>
+  <button type="button" name="button" onclick="started=true;">knapp</button> <br>
+<span id='timeleft' ></span>
+
+</body>
+</html>

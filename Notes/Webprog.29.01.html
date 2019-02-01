@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Webprog 29.01</title>
+    <h1>Webprog 29.01</h1>
+  </head>
+  <body>
+    <h1>JavaScript</h1>
+<li>Embedding</li>
+<li>Syntax</li>
+<li>Types and variables</li>
+<li>Objects and funtions</li>
+    <h2>Outline:</h2>
+    <p>
+<ul>
+
+</ul>
+    </p>
+
+    <h2>Embedding</h2>
+    <p>
+explicit embedding: script /script <br>
+implicit embedding: script src=myfile.js> /script <br>
+js in head executed asap <br>
+js in body executed from top down <br>
+    </p>
+
+    <h2>General Syntax</h2>
+    <p>
+Js is case sensitive <br>
+reserved words: function, if, this, var, return, ... <br>
+comments: // or /* ... */ <br>
+each statement, separat line terminated wit semicolon <br>
+ex: if(a<b) {
+  document.write("a is greater than b");
+} else ... <br>
+var voteable =(age<18) ? "too young": "old enough" <br>
+switch(color){
+  case red: ... <br>
+
+  for(var i = 0; i<10; i++){
+    document.writeln(i);
+  }
+}
+
+break jumps out of a loop <br>
+continue jumps over one iteration in the loop <br>
+
+js display data: <br>
+writing into browser console: console.log() <br>
+alert box: window.alert() <br>
+into output: document.write() <br>
+into html element: innerHTML <br>
+setting value of a html form element using element.value <br>
+    </p>
+
+    <h2>Types and variables</h2>
+    <p>
+implicitly: name="john"; <br>
+var name = "John"; <br>
+many values: var name ="john", age=23, car ="audi a4"; <br>
+a variable can change its datatype <br>
+variables must begin with a letter or $ or _ <br>
+case sensitive, cant use reserved words <br>
+naming conventon: camelCase, $javascript libraries, _reserved... <br>
+can contain valyes: stringm number, boolean, object, function <br>
+cannot contain values: null, undefined <br>
+typeof operator finds the datatype of a javascript variable <br>
+ex: typeof"john" returns a string <br>
+array and date is an object <br>
+interpeter coercions: "August" + 1997 returns August1997, 1997 +"August" returns Nan, 5+null=5, "5"+null="5null", "5"+2=52, "5"-2=3, "5"*"2"=10 <br>
+using == coercion will occur, ' ' == 0 is true for example <br>
+using === coercion doesnt occur, ' ' === 0 is false <br>
+
+primitive data types with values can also be objects: <br>
+explicit tpe conversion: <br>
+var num = 6; <br>
+var str=String(num); <br>
+or using tostring: <br>
+var num=6: <br>
+var str=num.toString(); <br>
+string to numbers: parseint or parsefloat, or coercion <br>
+<h3>Variable scope</h3>
+global vs local: <br>
+implicitly declared: global scope, explicitly declared with var: outside functions: global scope, within function: local scope, best practice to avoid global variables <br>
+    </p>
+
+    <h2>objects and functions</h2>
+    <p>
+Functions: <br>
+function addone(num){return num+1;} <br>
+console.log(addone(3)); outputs 4 in console. <br>
+var plussone=addone, plussone is now the same functon <br>
+function op(operation, value){ return operation(value)} <br>
+
+    </p>
+
+    <h2>prototypal vs classical oop</h2>
+    <p>
+classical oop: objects are created by instantiating classes <br>
+prototypal inheritance: no classes, only objects, generalizations r called prototypes <br>
+latter: simple and dynamic <br>
+function dog(name, weight, breed){
+  this.name=name;
+  this.bweight=weight;
+  this.breed=breed;
+} <br>
+
+var mydog=new dog("...", 4, "..."); <br>
+mydog.age=12 <br>
+delete mydog.weight <br>
+check: mydog.hasownproperty("name") reurns true or false. <br>
+listing properties: ... <br>
+adding properties: dog.propertype.gender="unknkown"; <br>
+adding only to one: mydog.gender="unknown" <br>
+
+    </p>
+
+    <h2>Built in objects</h2>
+    <p>
+number, math array, date, ... <br>
+number object: number.min_value, number.max_value, tostring() <br>
+math object: math.pi, abs(x), round(x), ceil(x), floor(x), min(x,y,z...), max, random(), sin(x)... <br>
+array object: new array(), or new array("x", "y") <br>
+or using literal: var emptyarray = [], or var fruits =["orange", "apple"] <br>
+length sets or returns number of elements. <br>
+only the assigned elements actualy occupy space <br>
+methods: join(x,y,...), indexof(x), last indexof(x), pop, push, shift(), unshift remove add element to from beginning, sort, reverse, concat joins all lements into a string <br>
+String object: length, charat(x), indexof(x), lastindexof(x), substr(x,y), replace(x,y), trim() removes whitespaces from both ends of a string, split(x) splits a string into an array of substrings <br>
+date object: var dt = new date(), dt.getday(), dt.getmonth(), dt.getyear(), 
+    </p>
+
+  </body>
+</html>

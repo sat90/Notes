@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Databaser 23.01</title>
+    <h1>Databaser 23.01</h1>
+
+<style media="screen">
+  body{
+    background: rgba(100,150,255,0.5);
+  }
+
+table{
+
+}
+
+</style>
+
+  </head>
+  <body>
+
+<h2>ch3 continued</h2>
+<p>
+<h3>Enforcing Refential Integrity</h3>
+primary key(sid, cid), <br>
+Foreign key (sid) references students) <br>
+<br>
+
+<table border="1!">
+  <thead>
+    <tr>
+      <th colspan="3">Enrolled</th>
+    </tr>
+  <tr>
+    <th>sid</th>
+    <th>cid</th>
+    <th>grade</th>
+  </tr>
+  </thead>
+  <tr>
+    <td>53666</td>
+    <td>355</td>
+    <td>a</td>
+  </tr>
+</table>
+<br>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th colspan="4">Students</th>
+    </tr>
+  <tr>
+    <th>sid</th>
+    <th>name</th>
+    <th>login</th>
+    <th>age</th>
+  </tr>
+  </thead>
+  <tr>
+    <td>5366</td>
+    <td>355</td>
+    <td>password</td>
+    <td>18</td>
+  </tr>
+</table> <br>
+
+
+<ol>
+<li>Also delete all the records that refer to it -> Cascade</li>
+<li>Disallow deletion (rejected) -> No action </li>
+<li>Set sid in enrolled table that refer to it to a default value <br>
+  coursName vorchaar(255) default "dat220" -> set default </li>
+  <li>set sid ... to null -> set Null</li>
+
+</ol>
+</p>
+
+<p>
+<h3>Logical DB Design: ER to Relational</h3>
+Entity sets to tables <br>
+</p>
+
+<p>
+<h3>Relational sets to tables</h3>
+<h4>Many to many</h4>
+Create table works-in(
+<ul>
+  <li>ssn char(),</li>
+  <li>did integer,</li>
+  <li>Since Date,</li>
+  <li>primary key(SSN, did),</li>
+  <li>Foreign Key(ssn),</li>
+  <li>References Empleyes,</li>
+  <li>Foreign key(did),</li>
+  <li>References Departments)</li>
+  <li>put integrity constraints here, on delete etc</li>
+</ul>
+<br>
+<h4>one to many</h4>
+create table manages(
+<ul>
+  <li>ssn char,</li>
+  <li>did integer,</li>
+  <li>since date,</li>
+  <li>primary key(did),</li>
+  <li>foreign key(ssn) references employees,</li>
+  <li>foreign key(did) referebces departments</li>
+</ul>
+
+</p>
+
+<p>
+<h3>Weak entities</h3>
+One owner - many weak entities <br>
+<h4>ranslating weak entity sets</h4>
+weak entity set and identifying relationship are translated into a single table <br>
+when the owner is deleted, all owned weak entities must be deleted aswell. <br>
+On delete cascade
+</p>
+
+<p>
+<h3>ISA Hierarchies</h3>
+3 relations: emplyes, hourlyemps, contractemps
+
+<table border="1">
+  <thead>
+    <tr>
+      <th colspan="4">Employe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td> <td>xxx</td>
+    </tr>
+    <tr>
+      <td>name </td> <td>xxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+extra table for hourly and contractsemps with extra info but same id
+
+</p>
+
+<p>
+<h3>Binary vs ternary relationships</h3>
+etc
+</p>
+
+<p>
+<h3>Views</h3>
+A view is just a relaion, but we store a definition, rather than a set of tuples. <br>
+(Definition) View: is a table whose rows are not explicitly stored in the DB, but are computed as needed from a view. <br>
+For example: consider tables students and enrolled. suppose we are often interested in finding the grades of students with age less than 21 <br>
+
+Create View youngactivestudents(name,grade) <br>
+as select s.name, E.grade <br>
+From students s, enrolled E <br>
+Where S.sid = e.sid and s.age<21 <br>
+
+views can be used to present necessary information(or a summary), while hiding details in underlying relations  <br>
+
+</p>
+
+  </body>
+</html>
