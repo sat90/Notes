@@ -2,46 +2,50 @@
 <head>
 <title></title>
 <script>
+  var periodmins=0;
+  var periodsecs=5;
+
   var started=false;
-  var mins=0;
-  secs=5;
+  var mins=periodmins;
+  secs=periodsecs;
 
 function update(){
   time=setTimeout('show()',1000)}
 
 function show() {
   if (started) {
-
-
-secs=secs-1;
-
+    secs=secs-1;
 if(mins===0 && secs<0){
-  mins=4;
-  secs=0;
+  mins=periodmins;
+  secs=periodsecs;
   started=false;
 }
-
 if (secs<0) {
   secs=59;
   mins=mins-1;
   }
 }
-
-
-
-
-
-
 document.getElementById('timeleft').innerHTML = mins+":"+secs;
-
 update();
  }
 </script>
+
+<style media="screen">
+  body{
+    font-size: 10em;
+  }
+
+button{
+  width=50%;
+}
+
+</style>
+
 </head>
 
 <body onload=show();>
-  <button type="button" name="button" onclick="started=true;">knapp</button> <br>
-<span id='timeleft' ></span>
+  <button type="button" name="button" onclick="started=true;">Start</button> <br>
+<span id='timeleft'  ></span>
 
 </body>
 </html>
